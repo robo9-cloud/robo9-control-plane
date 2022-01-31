@@ -3,14 +3,14 @@
 
 
 <p align="center">
-  <img src="assets/images/controller-img.png" alt="robotcli-logo" width="900px" height="97px"/>
+  <img src="assets/images/space-bot-blue-png.png" alt="robotcli-logo" />
 </p>
 
 <h1 align="center">robo-9 - easily deploy your infrastructure pipeline across cloud using serverless managed service</h1>
 <h3 align="center"> Automates the process of building infrastructure
 </h3>
 <p align="center">
-  <img src="assets/images/space-bot-blue-png.png" alt="infrabot-logo" width="120px" height="120px"/>
+  <img src="assets/images/controller-img.png" alt="robotcli-logo" />
   <br>
   <i>Robo9 is a cloud serverless system which deploys infrastructure across aws, gcp, azure. You can deploy pipelines using your favorite tool: Terraform, Ansible, Packer, Chef, etc.</i>
   <br>
