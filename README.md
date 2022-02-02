@@ -6,7 +6,7 @@
   <img src="docs/src/_static/assets/images/space-bot-blue-png.png" alt="robotcli-logo" />
 </p>
 
-<h1 align="center">robo-9 - easily deploy your infrastructure pipeline across cloud using serverless managed service</h1>
+<h1 align="center">Robo-9 - easily deploy your infrastructure pipeline across cloud using serverless managed service</h1>
 <h3 align="center"> Automates the process of building infrastructure
 </h3>
 <p align="center">
