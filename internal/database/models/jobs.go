@@ -24,14 +24,6 @@ const (
 	TASK_TYPE_CHEF
 )
 
-var taskTypes = map[string]taskTypeEnum{
-	"TERRAFORM_PLAN_TASK":  TASK_TYPE_TERRAFORM_PLAN,
-	"TERRAFORM_APPLY_TASK": TASK_TYPE_TERRAFORM_APPLY,
-	"ANSIBLE_TASK":         TASK_TYPE_ANSIBLE,
-	"PACKER_TASK":          TASK_TYPE_PACKER,
-	"CHEF_TASK":            TASK_TYPE_CHEF,
-}
-
 func (j taskTypeEnum) String() string {
 	switch j {
 	case TASK_TYPE_TERRAFORM_PLAN:
