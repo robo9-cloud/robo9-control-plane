@@ -26,7 +26,7 @@ Get started with infrabot, learn how to configure infrabot for your organization
 - [Getting Started][quickstart]
 - [Infrastructure Pipeline][infrapipeline]
 - [Config file Overview][configoverview]
-- [CLI Options][cli]
+- [CLI Options][cli] 
 
 ## Demo
 
