@@ -4,8 +4,13 @@ Copyright © 2022 NAME HERE <EMAIL ADDRESS>
 */
 package main
 
-import "github.com/serverless-cloud-robot/robo9-cli/cmd"
+import (
+	"fmt"
+	"github.com/serverless-cloud-robot/robo9/internal/controller"
+)
 
 func main() {
-	cmd.Execute()
+	fmt.Println("starting api web service. v0.0.1 ...")
+	controller.StartServer()
+
 }

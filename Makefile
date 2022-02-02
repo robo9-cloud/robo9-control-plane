@@ -1,5 +1,4 @@
 
-
 build-container-local:
 	docker build  . -t api-server
 
@@ -14,3 +13,4 @@ run-container-local:
 
 run-database-local:
 	docker-compose up postgres pgadmin
+

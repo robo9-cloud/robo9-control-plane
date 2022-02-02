@@ -3,7 +3,7 @@ package controller
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/serverless-cloud-robot/robo9-cli/internal/api"
+	"github.com/serverless-cloud-robot/robo9/internal/api"
 	"net/http"
 	"regexp"
 )
