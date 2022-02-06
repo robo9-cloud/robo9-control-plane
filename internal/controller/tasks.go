@@ -45,7 +45,7 @@ func (tc *taskController) Put(w http.ResponseWriter, r *http.Request) {
 }
 
 func (tc *taskController) Post(w http.ResponseWriter, r *http.Request) {
-	u, err := tc.parseRequest(r) // TODO: Implement this function
+	u, err := tc.parseRequest(r)
 	if err != nil {
 		zap.S().Info(err.Error())
 		w.WriteHeader(http.StatusInternalServerError)
