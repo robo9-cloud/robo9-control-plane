@@ -2,6 +2,7 @@ package controller
 
 import (
 	"encoding/json"
+	"github.com/gorilla/mux"
 	"io"
 	"log"
 	"net/http"
@@ -9,9 +10,15 @@ import (
 
 func StartServer() {
 	tc := NewTaskController()
-	app := http.NewServeMux()
-	app.Handle("/tasks", tc)
-	app.Handle("/tasks/", tc)
+
+	app := mux.NewRouter()
+
+	app.HandleFunc("/tasks", tc.GetAll).Methods("GET")
+	app.HandleFunc("/tasks", tc.Post).Methods("POST")
+	app.HandleFunc("/tasks/{id}", tc.Get).Methods("GET")
+	app.HandleFunc("/tasks/{id}", tc.Put).Methods("PUT")
+	app.HandleFunc("/tasks/{id}", tc.Delete).Methods("DELETE")
+
 	s := &http.Server{
 		Addr:    ":18080",
 		Handler: app,
