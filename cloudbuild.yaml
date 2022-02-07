@@ -20,3 +20,4 @@ steps:
            'managed',
            '--allow-unauthenticated']
 
+logsBucket: 'gs://${PROJECT_ID}_robo9_api_server_logs'
