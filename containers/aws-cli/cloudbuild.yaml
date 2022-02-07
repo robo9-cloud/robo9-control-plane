@@ -1,6 +1,6 @@
 steps:
   - name: gcr.io/cloud-builders/docker
-    args: ['build', '--tag=gcr.io/$PROJECT_ID/awscli', '.']
+    args: ['build', '--tag=gcr.io/$PROJECT_ID/awscli','-f', 'containers/aws-cli/Dockerfile', '.']
 
   # Print version information.
   - name: gcr.io/$PROJECT_ID/awscli

@@ -12,6 +12,8 @@ steps:
       - 'TERRAFORM_VERSION_SHA256SUM=${_TERRAFORM_VERSION_SHA256SUM}'
     args:
       - build
+      - -f
+      - containers/terraform/Dockerfile',
       - --build-arg
       - TERRAFORM_VERSION=${_TERRAFORM_VERSION}
       - --build-arg
