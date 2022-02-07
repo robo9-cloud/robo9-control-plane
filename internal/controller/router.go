@@ -59,7 +59,10 @@ func StartServer() {
 	<-c
 	ctx, cancel := context.WithTimeout(context.Background(), wait)
 	defer cancel()
-	s.Shutdown(ctx)
+	err := s.Shutdown(ctx)
+	if err != nil {
+		zap.S().Info(err.Error())
+	}
 	zap.S().Info("shutting down server")
 	os.Exit(0)
 
@@ -67,5 +70,8 @@ func StartServer() {
 
 func encodeResponseAsJSON(data interface{}, w io.Writer) {
 	enc := json.NewEncoder(w)
-	enc.Encode(data)
+	err := enc.Encode(data)
+	if err != nil {
+		zap.S().Info(err.Error())
+	}
 }
