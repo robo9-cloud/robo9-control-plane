@@ -15,10 +15,10 @@ steps:
            'robo9-api-server',
            '--image=gcr.io/$PROJECT_ID/robo9:0.0.1',
            '--region',
-           'us-west1',
+           '$_REGION',
            '--platform',
            'managed',
-           '--service-account=automation-robo9@$PROJECT_ID.iam.gserviceaccount.com',
+           '--service-account=$_SRV_ACCT',
            '--allow-unauthenticated']
 
 logsBucket: 'gs://${PROJECT_ID}_robo9_api_server_logs'
