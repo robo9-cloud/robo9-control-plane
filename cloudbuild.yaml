@@ -18,6 +18,7 @@ steps:
            'us-west1',
            '--platform',
            'managed',
+           '--service-account=automation-robo9@$PROJECT_ID.iam.gserviceaccount.com',
            '--allow-unauthenticated']
 
 logsBucket: 'gs://${PROJECT_ID}_robo9_api_server_logs'
