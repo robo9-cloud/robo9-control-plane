@@ -5,7 +5,8 @@ substitutions:
   _TERRAFORM_VERSION_SHA256SUM: f06ac64c6a14ed6a923d255788e4a5daefa2b50e35f32d7a3b5a2f9a5a91e255
 steps:
   - name: 'gcr.io/cloud-builders/wget'
-    args: ["https://releases.hashicorp.com/terraform/${_TERRAFORM_VERSION}/terraform_${_TERRAFORM_VERSION}_linux_amd64.zip"]
+    args: ["https://releases.hashicorp.com/terraform/${_TERRAFORM_VERSION}/terraform_${_TERRAFORM_VERSION}_linux_amd64.zip",
+    "-P" , "containers/terraform/"]
   - name: 'gcr.io/cloud-builders/docker'
     env:
       - 'TERRAFORM_VERSION=${_TERRAFORM_VERSION}'
