@@ -30,9 +30,11 @@ jobs:
       - name: Run Linter
         run: golangci-lint run ./...
 
-      - name: Checkout Source
-        uses: actions/checkout@v2
       - name: Run Gosec Security Scanner
-        uses: securego/gosec@master
-        with:
-          args: -exclude=G104  ./...
+        run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          go get github.com/securego/gosec/cmd/gosec
+          gosec -exclude=G104  ./...
+
+
+
