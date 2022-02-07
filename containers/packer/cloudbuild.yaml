@@ -14,4 +14,6 @@ substitutions:
 images:
   - 'gcr.io/$PROJECT_ID/packer:latest'
   - 'gcr.io/$PROJECT_ID/packer:${_PACKER_VERSION}'
-tags: ['robo9']
+tags: ['robo9-builders']
+options:
+  logging: CLOUD_LOGGING_ONLY

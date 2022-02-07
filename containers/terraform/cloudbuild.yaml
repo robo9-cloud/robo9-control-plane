@@ -26,4 +26,6 @@ steps:
 images:
   - 'gcr.io/${PROJECT_ID}/terraform:${_TERRAFORM_VERSION}'
   - 'gcr.io/${PROJECT_ID}/terraform:latest'
-tags: ['robo9']
+tags: ['robo9-builders']
+options:
+  logging: CLOUD_LOGGING_ONLY

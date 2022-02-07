@@ -9,6 +9,8 @@ steps:
 images:
   - 'gcr.io/$PROJECT_ID/helm:${_HELM_VERSION}'
   - 'gcr.io/$PROJECT_ID/helm:latest'
-tags: ['robo9']
+tags: ['robo9-builders']
 substitutions:
   _HELM_VERSION: 3.7.0
+options:
+  logging: CLOUD_LOGGING_ONLY
