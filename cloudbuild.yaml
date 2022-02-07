@@ -1,0 +1,22 @@
+steps:
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build',
+           '--tag=gcr.io/$PROJECT_ID/robo9:0.0.1',
+           '-f',
+           'Dockerfile',
+           '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/robo9:0.0.1']
+
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['run', 'deploy',
+           'robo9-api-server',
+           '--image=gcr.io/$PROJECT_ID/robo9:0.0.1',
+           '--region',
+           'us-west1',
+           '--platform',
+           'managed',
+           '--allow-unauthenticated']
+
