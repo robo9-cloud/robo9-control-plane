@@ -5,18 +5,22 @@ steps:
   args: ['init',
     '-backend-config=project=${PROJECT_ID}',
     '-backend-config=bucket=${_BUCKET}']
+  dir: 'containers/terraform/examples/gcs_backend'
   env:
     - "TF_VAR_project-name=${PROJECT_ID}"
 - name: 'gcr.io/${PROJECT_ID}/terraform'
   args: ['plan']
+  dir: 'containers/terraform/examples/gcs_backend'
   env:
     - "TF_VAR_project-name=${PROJECT_ID}"
 - name: 'gcr.io/${PROJECT_ID}/terraform'
   args: ['apply', '-auto-approve']
+  dir: 'containers/terraform/examples/gcs_backend'
   env:
     - "TF_VAR_project-name=${PROJECT_ID}"
 - name: 'gcr.io/${PROJECT_ID}/terraform'
   args: ['destroy', '-auto-approve']
+  dir: 'containers/terraform/examples/gcs_backend'
   env:
     - "TF_VAR_project-name=${PROJECT_ID}"
 substitutions:
