@@ -6,6 +6,7 @@ substitutions:
 steps:
   - name: 'gcr.io/cloud-builders/wget'
     args: ["https://releases.hashicorp.com/terraform/${_TERRAFORM_VERSION}/terraform_${_TERRAFORM_VERSION}_linux_amd64.zip"]
+    dir: 'containers/terraform'
   - name: 'gcr.io/cloud-builders/docker'
     env:
       - 'TERRAFORM_VERSION=${_TERRAFORM_VERSION}'
@@ -21,9 +22,12 @@ steps:
       - --tag
       - gcr.io/${PROJECT_ID}/terraform:latest
       - .
+    dir: 'containers/terraform'
   - name: 'gcr.io/${PROJECT_ID}/terraform:${_TERRAFORM_VERSION}'
     args: ['version']
 images:
   - 'gcr.io/${PROJECT_ID}/terraform:${_TERRAFORM_VERSION}'
   - 'gcr.io/${PROJECT_ID}/terraform:latest'
-tags: ['robo9']
+tags: ['robo9-builders']
+options:
+  logging: CLOUD_LOGGING_ONLY

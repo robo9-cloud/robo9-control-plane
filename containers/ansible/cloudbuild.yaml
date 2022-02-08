@@ -3,19 +3,21 @@
 
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '--tag=gcr.io/$PROJECT_ID/ansible', '-f', 'Dockerfile', '.']
+    args: ['build', '--tag=gcr.io/$PROJECT_ID/ansible:2.7.0-r1', '-f', 'containers/ansible/Dockerfile', '.']
 
   # Simple sanity check: check that ansible-playbook has not errors
-  - name: 'gcr.io/$PROJECT_ID/ansible'
+  - name: 'gcr.io/$PROJECT_ID/ansible:2.7.0-r1'
     args: ['--version']
 
   # Run some ansible commands for check
-  - name: 'gcr.io/$PROJECT_ID/ansible'
+  - name: 'gcr.io/$PROJECT_ID/ansible:2.7.0-r1'
     entrypoint: '/usr/bin/ansible'
     args: ['all', '-i', 'localhost,', '-c', 'local', '-e', 'ansible_python_interpreter=python3', '-m', 'setup', '-a', 'filter=ansible_hostname']
 
 images:
-  - 'gcr.io/$PROJECT_ID/ansible'
+  - 'gcr.io/$PROJECT_ID/ansible:2.7.0-r1'
 
 timeout: 1200s
-tags: ['robo9']
+tags: ['robo9-builders']
+options:
+  logging: CLOUD_LOGGING_ONLY

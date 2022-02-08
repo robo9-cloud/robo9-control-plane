@@ -21,4 +21,5 @@ steps:
            '--service-account=$_SRV_ACCT',
            '--allow-unauthenticated']
 
-logsBucket: 'gs://$_BUCKET_LOGS'
+options:
+  logging: CLOUD_LOGGING_ONLY

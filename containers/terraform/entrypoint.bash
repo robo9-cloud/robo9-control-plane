@@ -36,12 +36,12 @@ EOF
 }
 
 get-active-account
-if [[ (! -z "$active_account") &&  (! -z "$GCLOUD_SERVICE_KEY") ]]; then
+if [[ (! -z "$active_account") &&  (! -z "_GCLOUD_SERVICE_KEY") ]]; then
   account-active-warning
   activate-service-key
-elif [[ (-z "$active_account") && (! -z "$GCLOUD_SERVICE_KEY") ]]; then
+elif [[ (-z "$active_account") && (! -z "_GCLOUD_SERVICE_KEY") ]]; then
   activate-service-key
-elif [[ (-z "$active_account") &&  (-z "$GCLOUD_SERVICE_KEY") ]]; then
+elif [[ (-z "$active_account") &&  (-z "_GCLOUD_SERVICE_KEY") ]]; then
   echo "no active account and no key"
   service-account-usage
 fi

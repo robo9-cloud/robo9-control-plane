@@ -1,6 +1,11 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--tag=gcr.io/$PROJECT_ID/helm:${_HELM_VERSION}', '--tag=gcr.io/$PROJECT_ID/helm:latest', '--build-arg', 'HELM_VERSION=v${_HELM_VERSION}', '.']
+  args: ['build',
+         '-f', 'containers/helm/Dockerfile',
+         '--tag=gcr.io/$PROJECT_ID/helm:${_HELM_VERSION}',
+         '--tag=gcr.io/$PROJECT_ID/helm:latest',
+         '--build-arg', 'HELM_VERSION=v${_HELM_VERSION}',
+         'containers/helm']
 # Sanity Check: make sure basic functionality works
 - name: 'gcr.io/$PROJECT_ID/helm:latest'
   args: ['version', '--client']
@@ -9,6 +14,8 @@ steps:
 images:
   - 'gcr.io/$PROJECT_ID/helm:${_HELM_VERSION}'
   - 'gcr.io/$PROJECT_ID/helm:latest'
-tags: ['robo9']
+tags: ['robo9-builders']
 substitutions:
   _HELM_VERSION: 3.7.0
+options:
+  logging: CLOUD_LOGGING_ONLY

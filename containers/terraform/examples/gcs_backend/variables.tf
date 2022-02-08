@@ -1,8 +1,8 @@
 variable "project-name" {
-  type    = "string"
+  type    = string
 }
 
 variable "region" {
-  type    = "string"
+  type    = string
   default = "us-east1-d"
 }

@@ -1,12 +1,12 @@
 provider "google" {
-  project     = "${var.project-name}"
-  region      = "${var.region}"
+  project     = var.project-name
+  region      = var.region
 }
 
 // Create a new instance
 resource "google_container_cluster" "terraform-builder-gcs-backend" {
   name               = "terraform-builder-gcs-backend"
-  zone               = "${var.region}"
+  zone               = var.region
   initial_node_count = "3"
 
   node_config {

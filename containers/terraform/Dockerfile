@@ -13,5 +13,6 @@ FROM gcr.io/cloud-builders/gcloud
 
 COPY --from=build terraform /usr/bin/terraform
 COPY entrypoint.bash /builder/entrypoint.bash
+RUN chmod +x /builder/entrypoint.bash
 
 ENTRYPOINT ["/builder/entrypoint.bash"]
